@@ -1,0 +1,7 @@
+{
+  "name": "X11 Forwarding",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "dev",
+  "workspaceFolder": "/workspace",
+  "remoteUser": "vscode"
+}
