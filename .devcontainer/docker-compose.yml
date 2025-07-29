@@ -7,6 +7,7 @@ services:
     volumes:
       - ..:/workspace:cached
       - /tmp/.X11-unix:/tmp/.X11-unix
+      - ~/.gitconfig-custom-fernandobhz:/home/vscode/.gitconfig
     environment:
       - DISPLAY=${DISPLAY}
     user: vscode
