@@ -3,5 +3,6 @@
   "dockerComposeFile": "docker-compose.yml",
   "service": "dev",
   "workspaceFolder": "/workspace",
-  "remoteUser": "vscode"
+  "remoteUser": "vscode",
+  "initializeCommand": "chmod +x .devcontainer/initializeCommand.sh && .devcontainer/initializeCommand.sh"
 }

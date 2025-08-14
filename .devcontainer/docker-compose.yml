@@ -4,16 +4,17 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    # Required if I need those variables to be avaiable inside container
-    # Which we did, because it sets the correct $DISPLAY value
-    # Based on the operational system.
-    env_file:
-      - .env
     volumes:
       - ..:/workspace:cached
-      - ~/.gitconfig-custom-fernandobhz:/home/vscode/.gitconfig
       - /tmp/.X11-unix:/tmp/.X11-unix
     environment:
+      # Docker Compose autatically loads the .env file in current folder
+      # Those values can be used only in this file
+      # Those values won't be available in the container
+      # We need to reset those in an environment block, or
+      # Load them with env_file: \n \t ,env
+      # Loading vars in that way will make then avaiable in the container
+      # Pick just one to do it.
       - DISPLAY=${DISPLAY}
     user: vscode
     command: sleep infinity
