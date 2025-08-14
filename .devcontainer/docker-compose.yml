@@ -1,9 +1,14 @@
-version: '3.8'
+version: "3.8"
 services:
   dev:
     build:
       context: .
       dockerfile: Dockerfile
+    # Required if I need those variables to be avaiable inside container
+    # Which we did, because it sets the correct $DISPLAY value
+    # Based on the operational system.
+    env_file:
+      - .env
     volumes:
       - ..:/workspace:cached
       - ~/.gitconfig-custom-fernandobhz:/home/vscode/.gitconfig
